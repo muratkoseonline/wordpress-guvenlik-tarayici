@@ -1,8 +1,5 @@
-# release-packager.yml
-
 name: Eklenti Paketleyici ve Sürüm Oluşturucu
 
-# Bu otomasyon ne zaman çalışacak? -> Yeni bir sürüm yayınlandığında.
 on:
   release:
     types: [published]
@@ -11,23 +8,19 @@ jobs:
   build_and_zip:
     name: ZIP Dosyası Oluştur ve Sürüme Ekle
     runs-on: ubuntu-latest
-    permissions:      
-      contents: write 
+    
+    permissions:
+      contents: write
 
     steps:
-      # 1. Adım: Proje kodlarını sanal makineye indir
       - name: Kodları Çek
         uses: actions/checkout@v4
 
-      # 2. Adım: Eklenti dosyalarını bir ZIP arşivine sıkıştır
       - name: Eklenti Dosyalarını Arşivle
-        run: zip -r guvenlik-tarayici.zip . -x ".git/*" ".github/*" "README.md" ".gitignore" "release-packager.yml"
+        run: zip -r guvenlik-tarayici.zip . -x ".git/*" ".github/*" "README.md" ".gitignore"
 
-      # 3. Adım: Oluşturulan ZIP dosyasını GitHub Sürümüne varlık (asset) olarak yükle
-      - name: ZIP Dosyasını Sürüme Yükle
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./guvenlik-tarayici.zip
-          asset_name: guvenlik-tarayici.zip
-          asset_content_type: application/zip
+      # YUKARIDAKİ ADIMIN YERİNE BU GELDİ
+      - name: ZIP Dosyasını Sürüme Yükle (gh CLI metodu)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload '${{ github.ref_name }}' ./guvenlik-tarayici.zip --clobber

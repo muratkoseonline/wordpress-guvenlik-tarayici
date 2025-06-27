@@ -4,7 +4,7 @@
  * Plugin URI:        https://muratkose.online
  * Description:       WordPress sitenizdeki dosyaları analiz ederek değiştirilmiş, eksik, bilinmeyen ve şüpheli dosyaları bulan bir güvenlik tarama aracı.
  * Version:           1.0.0
- * Author:            Kodlama Desteği & Murat Köse
+ * Author:            Kodlama Desteği && Murat Köse
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       guvenlik-tarayici

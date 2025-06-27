@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
              statusText.textContent = "Rapor oluşturuluyor...";
         }
     }
-
     displayFinalResults = function() {
         let html = '<h2><span class="status-info">&#9432;</span> Tarama Raporu</h2>';
         const unknown = finalResults.unknown_files_scan;

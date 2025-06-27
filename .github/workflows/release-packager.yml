@@ -10,7 +10,9 @@ on:
 jobs:
   build_and_zip:
     name: ZIP Dosyası Oluştur ve Sürüme Ekle
-    runs-on: ubuntu-latest # Otomasyonun çalışacağı sanal makine
+    runs-on: ubuntu-latest
+    permissions:      
+      contents: write 
 
     steps:
       # 1. Adım: Proje kodlarını sanal makineye indir
